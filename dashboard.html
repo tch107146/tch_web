@@ -12,6 +12,51 @@
         .progress-bar { transition: width 1s ease-in-out; }
     </style>
 </head>
+
+<script>
+    async function loadUserData() {
+        try {
+            const response = await fetch('/api/user-info');
+            if (!response.ok) throw new Error('無法取得資料');
+            
+            const data = await response.json();
+
+            // 1. 更新用戶名稱
+            const nameElement = document.getElementById('userName');
+            if (nameElement) nameElement.innerText = data.username;
+
+            // 2. 更新訂閱方案名稱
+            const planElement = document.querySelector('h3.text-xl.font-bold.text-gray-800');
+            if (planElement && data.plan_name) planElement.innerText = data.plan_name;
+
+            // 3. 更新到期日期
+            const dateElement = document.querySelector('.font-mono.font-bold.text-gray-800');
+            if (dateElement && data.expiry_date) dateElement.innerText = data.expiry_date;
+
+            // 4. 計算並更新剩餘天數
+            if (data.expiry_date) {
+                const expiry = new Date(data.expiry_date);
+                const today = new Date();
+                const diffTime = expiry - today;
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                
+                const dayElements = document.querySelectorAll('.text-xl.font-bold.text-gray-800 span');
+                dayElements.forEach(el => {
+                    if (el.classList.contains('text-orange-600')) {
+                        el.innerText = diffDays > 0 ? diffDays : 0;
+                    }
+                });
+            }
+
+        } catch (error) {
+            console.error('載入失敗:', error);
+        }
+    }
+
+    // 頁面載入後立即執行
+    window.onload = loadUserData;
+</script>
+
 <body class="bg-gray-50 font-sans">
 
     <nav class="bg-white shadow-sm border-b">
