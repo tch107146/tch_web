@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員控制台 | 鈦程商務 TCH Business</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .status-card { transition: transform 0.2s; }
+        .status-card:hover { transform: scale(1.02); }
+        .progress-bar { transition: width 1s ease-in-out; }
+    </style>
+</head>
+
+<script>
+    async function loadUserData() {
+        try {
+            const response = await fetch('/api/user-info');
+            if (!response.ok) throw new Error('無法取得資料');
+            
+            const data = await response.json();
+
+            // 1. 更新用戶名稱
+            const nameElement = document.getElementById('userName');
+            if (nameElement) nameElement.innerText = data.username;
+
+            // 2. 更新訂閱方案名稱
+            const planElement = document.querySelector('h3.text-xl.font-bold.text-gray-800');
+            if (planElement && data.plan_name) planElement.innerText = data.plan_name;
+
+            // 3. 更新到期日期
+            const dateElement = document.querySelector('.font-mono.font-bold.text-gray-800');
+            if (dateElement && data.expiry_date) dateElement.innerText = data.expiry_date;
+
+            // 4. 計算並更新剩餘天數
+            if (data.expiry_date) {
+                const expiry = new Date(data.expiry_date);
+                const today = new Date();
+                const diffTime = expiry - today;
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                
+                const dayElements = document.querySelectorAll('.text-xl.font-bold.text-gray-800 span');
+                dayElements.forEach(el => {
+                    if (el.classList.contains('text-orange-600')) {
+                        el.innerText = diffDays > 0 ? diffDays : 0;
+                    }
+                });
+            }
+
+        } catch (error) {
+            console.error('載入失敗:', error);
+        }
+    }
+
+    // 頁面載入後立即執行
+    window.onload = loadUserData;
+</script>
+
+<body class="bg-gray-50 font-sans">
+
+    <nav class="bg-white shadow-sm border-b">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-xl font-black text-gray-800">TCH <span class="text-blue-600">會員中心</span></span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-sm text-gray-600 hidden md:block">歡迎回來，<span id="userName" class="font-bold text-gray-800">林小明</span></span>
+                <a href="index.html" class="text-gray-400 hover:text-red-500 transition"><i class="fa-solid fa-right-from-bracket"></i> 登出</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-10">
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            
+            <div class="status-card bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center space-x-4">
+                <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-gem"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-gray-400 font-bold uppercase">目前訂閱方案</p>
+                    <h3 class="text-xl font-bold text-gray-800">Netflix 4K 家庭團</h3>
+                </div>
+            </div>
+
+            <div class="status-card bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center space-x-4">
+                <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-gray-400 font-bold uppercase">服務到期剩餘</p>
+                    <h3 class="text-xl font-bold text-gray-800"><span class="text-orange-600">14</span> 天</h3>
+                </div>
+            </div>
+
+            <div class="status-card bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center space-x-4">
+                <div class="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-gray-400 font-bold uppercase">付款狀態</p>
+                    <h3 class="text-xl font-bold text-green-600">暫不需繳費</h3>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            
+            <div class="lg:col-span-2 space-y-6">
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="p-6 border-b border-gray-50 flex justify-between items-center">
+                        <h3 class="font-bold text-gray-800"><i class="fa-solid fa-circle-info text-blue-500 mr-2"></i>訂閱詳情</h3>
+                        <span class="text-xs text-gray-400 italic">資料更新於：2026/03/02</span>
+                    </div>
+                    <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <p class="text-sm text-gray-500 mb-1">合約到期日期</p>
+                            <p class="text-lg font-mono font-bold text-gray-800">2026-03-16</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500 mb-1">下次續費金額</p>
+                            <p class="text-lg font-bold text-gray-800">NT$ 150 <span class="text-xs font-normal text-gray-400">/ 每月</span></p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500 mb-1">上次繳費日期</p>
+                            <p class="text-md font-medium text-gray-700">2026-02-16</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500 mb-1">上次繳費金額</p>
+                            <p class="text-md font-medium text-gray-700">NT$ 150</p>
+                        </div>
+                    </div>
+                    
+                    <div class="px-6 pb-8">
+                        <div class="flex justify-between text-xs mb-2">
+                            <span class="text-gray-400">上次續費</span>
+                            <span class="text-orange-500 font-bold">即將到期</span>
+                        </div>
+                        <div class="w-full bg-gray-100 rounded-full h-2">
+                            <div class="bg-orange-500 h-2 rounded-full progress-bar" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="p-6 border-b border-gray-50 font-bold text-gray-800">
+                        <i class="fa-solid fa-history text-gray-400 mr-2"></i> 最近繳費紀錄
+                    </div>
+                    <table class="w-full text-left text-sm">
+                        <thead class="bg-gray-50 text-gray-500">
+                            <tr>
+                                <th class="px-6 py-3 font-medium">日期</th>
+                                <th class="px-6 py-3 font-medium">項目</th>
+                                <th class="px-6 py-3 font-medium">金額</th>
+                                <th class="px-6 py-3 font-medium text-right">狀態</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-50">
+                            <tr>
+                                <td class="px-6 py-4">2026-02-16</td>
+                                <td class="px-6 py-4 font-medium">Netflix 訂閱續費</td>
+                                <td class="px-6 py-4">NT$ 150</td>
+                                <td class="px-6 py-4 text-right text-green-500 font-bold">成功</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <div class="bg-blue-600 rounded-2xl p-8 text-white shadow-lg shadow-blue-200">
+                    <h3 class="text-xl font-bold mb-4">快速續費</h3>
+                    <p class="text-blue-100 text-sm mb-6 leading-relaxed">
+                        您的服務即將在 14 天後到期。現在續費可確保服務不中斷，並自動延長到期日。
+                    </p>
+                    <button class="w-full bg-white text-blue-600 font-bold py-3 rounded-xl hover:bg-gray-100 transition shadow-md mb-4 flex items-center justify-center">
+                        <i class="fa-solid fa-credit-card mr-2"></i> 立即線上繳費
+                    </button>
+                    <p class="text-[10px] text-blue-200 text-center uppercase tracking-widest">Secure Payment Powered by TCH</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 border border-dashed border-gray-300">
+                    <h4 class="font-bold text-gray-800 mb-2">需要協助？</h4>
+                    <p class="text-sm text-gray-500 mb-4">如果您對帳單有任何疑問，或想更換訂閱方案，請聯繫專屬客服。</p>
+                    <a href="#" class="inline-flex items-center text-blue-600 font-bold text-sm hover:underline">
+                        <i class="fa-brands fa-line mr-2 text-lg text-green-500"></i> 聯繫 LINE 專員
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="text-center py-10 text-gray-400 text-xs">
+        © 2026 鈦程商務 TCH Business - 您的數位生活管家
+    </footer>
+
+</body>
+</html>
