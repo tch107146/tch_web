@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理後台 | 鈦程商務 TCH Business</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans min-h-screen">
+
+    <div class="flex">
+        
+        <aside class="w-64 bg-gray-900 min-h-screen text-white hidden md:block">
+            <div class="p-6">
+                <h1 class="text-xl font-black tracking-widest text-blue-400">TCH ADMIN</h1>
+                <p class="text-xs text-gray-500 mt-1">管理員系統 v1.0</p>
+            </div>
+            <nav class="mt-6">
+                <a href="#" class="flex items-center px-6 py-3 bg-blue-600 text-white border-l-4 border-blue-400">
+                    <i class="fa-solid fa-users mr-3"></i> 用戶管理
+                </a>
+                <a href="#" class="flex items-center px-6 py-3 text-gray-400 hover:bg-gray-800 hover:text-white transition">
+                    <i class="fa-solid fa-file-invoice mr-3"></i> 帳單審核
+                </a>
+                <a href="#" class="flex items-center px-6 py-3 text-gray-400 hover:bg-gray-800 hover:text-white transition">
+                    <i class="fa-solid fa-gear mr-3"></i> 系統設定
+                </a>
+            </nav>
+        </aside>
+
+        <main class="flex-1">
+            <header class="bg-white shadow-sm px-8 py-4 flex justify-between items-center">
+                <h2 class="text-xl font-bold text-gray-800">用戶名單管理</h2>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <input type="text" placeholder="搜尋用戶名或方案..." class="pl-10 pr-4 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-gray-400 text-xs"></i>
+                    </div>
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition">
+                        <i class="fa-solid fa-user-plus mr-1"></i> 新增用戶
+                    </button>
+                </div>
+            </header>
+
+            <div class="p-8 grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <p class="text-sm text-gray-500 font-medium">總用戶數</p>
+                    <h4 class="text-2xl font-bold text-gray-800">1,284</h4>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <p class="text-sm text-gray-500 font-medium">本月預計收入</p>
+                    <h4 class="text-2xl font-bold text-green-600">NT$ 84,200</h4>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <p class="text-sm text-red-500 font-medium">7天內到期用戶</p>
+                    <h4 class="text-2xl font-bold text-red-600">12</h4>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <p class="text-sm text-blue-500 font-medium">待審核繳費</p>
+                    <h4 class="text-2xl font-bold text-blue-600">5</h4>
+                </div>
+            </div>
+
+            <div class="px-8 pb-12">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-50 text-gray-500 text-xs uppercase tracking-wider">
+                                <th class="px-6 py-4 border-b font-semibold">用戶名稱</th>
+                                <th class="px-6 py-4 border-b font-semibold">當前方案</th>
+                                <th class="px-6 py-4 border-b font-semibold">到期日期</th>
+                                <th class="px-6 py-4 border-b font-semibold text-center">剩餘天數</th>
+                                <th class="px-6 py-4 border-b font-semibold">續費金額</th>
+                                <th class="px-6 py-4 border-b font-semibold text-right">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm divide-y divide-gray-100">
+                            <tr class="hover:bg-blue-50/30 transition">
+                                <td class="px-6 py-4">
+                                    <div class="font-bold text-gray-800">user_jack88</div>
+                                    <div class="text-[10px] text-gray-400">ID: #00124</div>
+                                </td>
+                                <td class="px-6 py-4 text-gray-600">Netflix 4K 家庭團</td>
+                                <td class="px-6 py-4 font-mono text-gray-800 font-medium">2026-03-16</td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="bg-red-100 text-red-600 px-2 py-1 rounded-full text-[10px] font-bold">14 天</span>
+                                </td>
+                                <td class="px-6 py-4 font-bold text-gray-800">NT$ 150</td>
+                                <td class="px-6 py-4 text-right space-x-2">
+                                    <button class="text-blue-500 hover:text-blue-700 font-bold px-2 py-1 border border-blue-100 rounded bg-blue-50">編輯</button>
+                                    <button class="text-gray-400 hover:text-red-500 font-bold px-2 py-1">重設密碼</button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-blue-50/30 transition">
+                                <td class="px-6 py-4">
+                                    <div class="font-bold text-gray-800">tch_customer_02</div>
+                                    <div class="text-[10px] text-gray-400">ID: #00125</div>
+                                </td>
+                                <td class="px-6 py-4 text-gray-600">YouTube Premium</td>
+                                <td class="px-6 py-4 font-mono text-gray-800 font-medium">2026-05-20</td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="bg-green-100 text-green-600 px-2 py-1 rounded-full text-[10px] font-bold">78 天</span>
+                                </td>
+                                <td class="px-6 py-4 font-bold text-gray-800">NT$ 90</td>
+                                <td class="px-6 py-4 text-right space-x-2">
+                                    <button class="text-blue-500 hover:text-blue-700 font-bold px-2 py-1 border border-blue-100 rounded bg-blue-50">編輯</button>
+                                    <button class="text-gray-400 hover:text-red-500 font-bold px-2 py-1">重設密碼</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="px-6 py-4 bg-gray-50 border-t flex justify-between items-center text-xs text-gray-500">
+                        <span>顯示 1 至 10 筆，共 1,284 筆</span>
+                        <div class="flex space-x-2">
+                            <button class="px-3 py-1 border rounded bg-white hover:bg-gray-100">上一頁</button>
+                            <button class="px-3 py-1 border rounded bg-white hover:bg-gray-100">下一頁</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="editModal" class="fixed inset-0 bg-black/50 hidden flex items-center justify-center z-50">
+        <div class="bg-white w-full max-w-md p-8 rounded-2xl shadow-2xl">
+            <h3 class="text-xl font-bold mb-6">修改用戶資料</h3>
+            <div class="space-y-4 text-sm">
+                <div>
+                    <label class="block text-gray-500 mb-1">用戶到期日</label>
+                    <input type="date" class="w-full p-2 border rounded border-gray-300">
+                </div>
+                <div>
+                    <label class="block text-gray-500 mb-1">續費金額 (NT$)</label>
+                    <input type="number" class="w-full p-2 border rounded border-gray-300" placeholder="150">
+                </div>
+            </div>
+            <div class="mt-8 flex space-x-4">
+                <button class="flex-1 bg-blue-600 text-white py-2 rounded-lg font-bold">儲存變更</button>
+                <button onclick="document.getElementById('editModal').classList.add('hidden')" class="flex-1 bg-gray-100 text-gray-600 py-2 rounded-lg font-bold">取消</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

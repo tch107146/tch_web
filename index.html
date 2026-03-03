@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鈦程商務 TCH Business | 全球數位訂閱與代購專家</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
+        .service-card { transition: all 0.3s ease; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center text-white font-bold text-xl">T</div>
+                <span class="text-2xl font-black text-gray-800 tracking-tight">鈦程商務 <span class="text-blue-600">TCH</span></span>
+            </div>
+            <div class="hidden md:flex space-x-8 items-center text-gray-600 font-medium">
+                <a href="#services" class="hover:text-blue-600 transition">服務項目</a>
+                <a href="#about" class="hover:text-blue-600 transition">關於我們</a>
+                <a href="login.html" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition shadow-md">會員登入</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="gradient-bg text-white py-20 px-6">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                    您的全球數位服務<br><span class="text-blue-200">後勤專家</span>
+                </h1>
+                <p class="text-lg text-blue-100 mb-8 max-w-lg">
+                    鈦程商務 (TCH Business) 提供專業的海外代購、代理付款與主流媒體訂閱服務。穩定、安全、快速，讓您跨越國界享受優質生活。
+                </p>
+                <div class="flex space-x-4">
+                    <a href="login.html" class="bg-white text-blue-700 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition">開始使用</a>
+                    <a href="#services" class="border border-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-blue-700 transition">了解更多</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <i class="fa-solid fa-globe text-[15rem] opacity-20"></i>
+            </div>
+        </div>
+    </header>
+
+    <section id="services" class="container mx-auto py-20 px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gray-800">我們的核心業務</h2>
+            <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="service-card bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <div class="w-14 h-14 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                    <i class="fa-solid fa-tv"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-gray-800">串流媒體訂閱</h3>
+                <p class="text-gray-600 mb-6">代辦 Netflix、Disney+、YouTube Premium 及 Spotify，提供穩定家庭團位與售後保障。</p>
+                <ul class="text-sm text-gray-500 space-y-2">
+                    <li><i class="fa-solid fa-check text-green-500 mr-2"></i>獨立 Profile 記錄</li>
+                    <li><i class="fa-solid fa-check text-green-500 mr-2"></i>到期自動提醒續費</li>
+                </ul>
+            </div>
+
+            <div class="service-card bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                    <i class="fa-solid fa-credit-card"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-gray-800">全球代理付款</h3>
+                <p class="text-gray-600 mb-6">解決海外網站不支援台灣信用卡的問題，專業代付各類軟體、遊戲、虛擬商品服務。</p>
+                <ul class="text-sm text-gray-500 space-y-2">
+                    <li><i class="fa-solid fa-check text-green-500 mr-2"></i>匯率透明合理</li>
+                    <li><i class="fa-solid fa-check text-green-500 mr-2"></i>即時線上對帳</li>
+                </ul>
+            </div>
+
+            <div class="service-card bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <div class="w-14 h-14 bg-green-100 text-green-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                    <i class="fa-solid fa-box-open"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-gray-800">海外商品代購</h3>
+                <p class="text-gray-600 mb-6">整合全球電商平台，協助處理訂購、清關及物流轉運，讓您在家也能買遍全球。</p>
+                <ul class="text-sm text-gray-500 space-y-2">
+                    <li><i class="fa-solid fa-check text-green-500 mr-2"></i>專人一對一客服</li>
+                    <li><i class="fa-solid fa-check text-green-500 mr-2"></i>全程物流追蹤</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+<section class="bg-white py-20 px-6 border-t border-gray-100">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">更靈活的支付方案，滿足您的需求</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        鈦程商務 (TCH Business) 明白跨國支付的痛點。除了傳統信用卡，我們更深入整合了台灣人最常用的支付工具。無論是個人日常訂閱，還是大額商務代付，我們都能提供最合適的管道。
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="mt-1 bg-blue-100 text-blue-600 p-2 rounded-lg text-sm">
+                                <i class="fa-solid fa-building-columns"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">銀行轉帳與匯款</h4>
+                                <p class="text-sm text-gray-500">支援全台各大銀行轉帳匯款，資金調度更透明，適合大額代付需求。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="mt-1 bg-green-100 text-green-600 p-2 rounded-lg text-sm">
+                                <i class="fa-solid fa-mobile-button"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">主流行動支付代理</h4>
+                                <p class="text-sm text-gray-500">全面支援 LINE Pay、Samsung Pay 與 Apple Pay，手機一掃即可完成代辦服務，安全又快速。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 grid grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-6 rounded-2xl flex flex-col items-center justify-center border border-gray-100 shadow-sm">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/LINE_Pay_logo_%282019%29.svg/1280px-LINE_Pay_logo_%282019%29.svg.png" class="h-6 mb-3" alt="LINE Pay">
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-gray-400">LINE Pay 代理</span>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-2xl flex flex-col items-center justify-center border border-gray-100 shadow-sm">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Apple_Pay_logo.svg/1280px-Apple_Pay_logo.svg.png" class="h-6 mb-3" alt="Apple Pay">
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-gray-400">Apple Pay 代理</span>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-2xl flex flex-col items-center justify-center border border-gray-100 shadow-sm">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Samsung_Pay_Logo.png" class="h-5 mb-4" alt="Samsung Pay">
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-gray-400">Samsung Pay</span>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-2xl flex flex-col items-center justify-center border border-gray-100 shadow-sm text-blue-600">
+                        <i class="fa-solid fa-university text-3xl mb-2"></i>
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-gray-400">銀行轉帳匯款</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-12 px-6">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start border-b border-gray-800 pb-10">
+                <div>
+                    <h3 class="text-white text-2xl font-bold mb-4">鈦程商務 TCH Business</h3>
+                    <p class="text-sm leading-relaxed max-w-md">
+                        專業代理付款、全球數位訂閱服務與海外精品代購。
+                        我們致力於打破國界限制，為您提供最穩定、最安全的支付解決方案。
+                    </p>
+                </div>
+
+                <div class="flex flex-col md:items-end">
+                    <div class="flex space-x-6 mb-8">
+                        <a href="#" class="text-green-500 hover:text-green-400 transition text-3xl">
+                            <i class="fa-brands fa-line"></i>
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-400 transition text-3xl">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                    </div>
+
+                    <div class="text-left md:text-right">
+                        <p class="text-xs uppercase tracking-widest text-gray-500 mb-4 font-semibold">支援付款方式</p>
+                        <div class="flex flex-wrap gap-5 justify-start md:justify-end items-center bg-white/20 p-4 rounded-xl border border-gray-800">
+                            
+                            <img src="https://1000logos.net/wp-content/uploads/2021/11/VISA-logo.png" class="h-8 opacity-80 hover:opacity-100 transition" alt="VISA">
+                            
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" class="h-8 opacity-80 hover:opacity-100 transition" alt="Mastercard">
+                            
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/JCB_logo.svg" class="h-8 opacity-80 hover:opacity-100 transition" alt="JCB">
+                            
+                            <img src="https://play-lh.googleusercontent.com/c8oisII4zLnZjpba-fpVOmdRUbmZHpPRVzBW-dee049P74S4zpX8cUD2-0p_AHrKog" class="h-8 opacity-80 hover:opacity-100 transition" alt="AMEX">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center mt-8 text-xs">
+                <p>© 2026 TCH Business Service. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white">服務條款</a>
+                    <a href="#" class="hover:text-white">隱私權政策</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
